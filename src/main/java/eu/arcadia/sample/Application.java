@@ -30,18 +30,17 @@ public class Application extends SpringBootServletInitializer {
     public static final String getterURI = "/getInfo";
 
     
-    //Only for Component 3 (Comment out)
     @RequestMapping(value = getterURI, method = RequestMethod.GET)
      public String getInfo() {
-        System.setProperty("Component.receivedRequests",String.valueOf(Integer.parseInt(System.getProperty("Component.receivedRequests"))+1));
+//        System.setProperty("Component.receivedRequests",String.valueOf(Integer.parseInt(System.getProperty("Component.receivedRequests"))+1));
 
-        String ret = "[--- Component3 Info ---]\n";
+        String ret = "[--- Component Info ---]\n";
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
             GroundedComponentInfo groundedComponentInfo = gson.fromJson(new FileReader(ArcadiaConstants.basePathAgent + File.separator + ArcadiaConstants.groundedInfoJsonFn), GroundedComponentInfo.class);
             ret += gson.toJson(groundedComponentInfo);
         } catch (FileNotFoundException e) {
-            ret += "Error getting information about Component3 !";
+            ret += "Error getting information about Component !";
             e.printStackTrace();
         }
 
