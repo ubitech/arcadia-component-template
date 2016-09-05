@@ -9,5 +9,5 @@ nb-configuration.xml
 build
 *.iml
 *.log
-*.xml
+#*.xml
 *.cfg
